@@ -123,6 +123,7 @@ class ServiciosView(generic.View):
             p = PagoServicio(cuenta_servicio=cuenta, tipo_servicio=servicio, monto=monto, user_cuenta=request.user.userprofile.codigo)
             p.save()
             messages.success(request, 'El servicio ha sido pagado exitosamente')
+	    self.request.user.userprofile.save()
         else:
             messages.success(request, 'El monto que se desea debitor es mayor al saldo de la cuenta.')
 
