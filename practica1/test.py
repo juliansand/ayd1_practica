@@ -51,7 +51,7 @@ class ServicioTest(TestCase):
 
     def test_credito(self):
         credit = Credito.objects.get(descripcion="prueba")  
-        user = UserProfile.objects.get(correo = "hola@gmail.com")
+        user = UserProfile.objects.get(correo = "hol@gmail.com")
         self.assertIsNotNone(user.nombre) 
         self.assertNotEqual(user.saldo, '0.00')
         self.assertNotEqual(credit.monto, '0.00')
