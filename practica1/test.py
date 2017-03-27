@@ -11,7 +11,7 @@ class ServicioTest(TestCase):
         User.objects.create(password="12345", username="prueba2")
         usuario2 = User.objects.get(username = "prueba2")
         Transferencia.objects.create(user_cuenta = "hola", user_cuenta2 = "hola2", monto = '25.00')
-        UserProfile.objects.create(correo="hola@gmail.com", nombre="hola", user = usuario, saldo = '0.00')
+        UserProfile.objects.create(correo="hola@gmail.com", nombre="hola", user = usuario, saldo = '10.00')
         UserProfile.objects.create(correo="hola2@gmail.com", nombre="hola2", user = usuario2, saldo = '10.00')
         Servicio.objects.create(servicio="luz")
         Servicio.objects.create(servicio="cable")
@@ -19,7 +19,7 @@ class ServicioTest(TestCase):
         PagoServicio.objects.create(cuenta_servicio="cuenta", tipo_servicio = cable, user_cuenta = "hola", monto='10.00')        
         user_cuenta = UserProfile.objects.get(correo = "hola@gmail.com")
         Debito.objects.create(monto='10.00', descripcion="prueba", user_cuenta=user_cuenta)
-        Credito.objects.create(monto='10.00', descripcion="prueba", user_cuenta=user_cuenta)
+        Credito.objects.create(monto='0.00', descripcion="prueba", user_cuenta=user_cuenta)
 
     def test_login(self):
         usuarios = User.objects.get(username="prueba")
