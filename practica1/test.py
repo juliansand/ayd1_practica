@@ -11,7 +11,7 @@ class ServicioTest(TestCase):
         User.objects.create(password="12345", username="prueba2")
         usuario2 = User.objects.get(username = "prueba2")
         Transferencia.objects.create(user_cuenta = "hola", user_cuenta2 = "hola2", monto = '25.00')
-        UserProfile.objects.create(correo="hola@gmail.com", nombre="hola", user = usuario, saldo = '10.00')
+        UserProfile.objects.create(correo="hola@gmail.com", nombre="hola", user = usuario, saldo = '0.00')
         UserProfile.objects.create(correo="hola2@gmail.com", nombre="hola2", user = usuario2, saldo = '10.00')
         Servicio.objects.create(servicio="luz")
         Servicio.objects.create(servicio="cable")
@@ -24,7 +24,7 @@ class ServicioTest(TestCase):
     def test_login(self):
         usuarios = User.objects.get(username="prueba")
         self.assertIsNotNone(usuarios.username) 
-        self.assertEqual(usuarios.username, "sdgfg")
+        self.assertEqual(usuarios.username, "prueba")
         self.assertEqual(usuarios.password, "1234")
 
     def test_signup(self):
