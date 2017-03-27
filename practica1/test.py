@@ -19,7 +19,7 @@ class ServicioTest(TestCase):
         PagoServicio.objects.create(cuenta_servicio="cuenta", tipo_servicio = cable, user_cuenta = "hola", monto='10.00')        
         user_cuenta = UserProfile.objects.get(correo = "hola@gmail.com")
         Debito.objects.create(monto='10.00', descripcion="prueba", user_cuenta=user_cuenta)
-        Credito.objects.create(monto='0.00', descripcion="prueba", user_cuenta=user_cuenta)
+        Credito.objects.create(monto='10.00', descripcion="prueba", user_cuenta=user_cuenta)
 
     def test_login(self):
         usuarios = User.objects.get(username="prueba")
@@ -51,7 +51,7 @@ class ServicioTest(TestCase):
 
     def test_credito(self):
         credit = Credito.objects.get(descripcion="prueba")  
-        user = UserProfile.objects.get(correo = "hol@gmail.com")
+        user = UserProfile.objects.get(correo = "hola@gmail.com")
         self.assertIsNotNone(user.nombre) 
         self.assertNotEqual(user.saldo, '0.00')
         self.assertNotEqual(credit.monto, '0.00')
