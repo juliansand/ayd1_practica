@@ -24,7 +24,7 @@ class ServicioTest(TestCase):
     def test_login(self):
         usuarios = User.objects.get(username="prueba")
         self.assertIsNotNone(usuarios.username) 
-        self.assertEqual(usuarios.username, "prueba")
+        self.assertEqual(usuarios.username, "ejemplo")
         self.assertEqual(usuarios.password, "1234")
 
     def test_signup(self):
